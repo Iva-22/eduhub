@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduFinance Hub - Student Wallet</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-wrapper">
+
+        
+           
+           
+        <div id="wallet-page">
+            
+            <nav class="top-nav">
+                <a href="#" class="active">Overview</a>
+                <a href="#">Spending</a>
+                <a href="#">Trends</a>
+            </nav>
+
+            <div class="wallet-header-row">
+                <div class="header-info">
+                    <h2>Student Wallet</h2>
+                    <p>Track your expenses, manage budgets, and stay financially healthy.</p>
+                </div>
+                
+                <a href="#category-modal" class="btn-add-category" style="text-decoration: none; display: inline-block; text-align: center;">Add Category +</a>
+            </div>
+
+            
+            <div class="wallet-main-layout">
+                
+                
+                <div class="balance-card">
+                    <div>
+                        <span class="balance-label">Available Balance</span>
+                        <div class="amount-large db-balance">R0</div>
+
+                    </div>
+                    
+                    <div>
+                        <span class="balance-label">This Month Savings</span>
+                        <div class="amount-medium db-savings">R0</div>
+
+                    </div>
+
+                    <div class="income-expense-row">
+                        <div class="mini-data-box">
+                            Monthly Income
+                            <strong>R7,500</strong>
+                        </div>
+                        <div class="mini-data-box">
+                            Monthly Expenses
+                            <strong>R1,445</strong>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="budget-sidebar">
+                    <div class="alert-box">
+                        <strong>Over Budget</strong>
+                        <p>Accommodation has exceeded the budget limit.</p>
+                    </div>
+
+                    <div class="categories-grid">
+                        <div class="category-card">
+                            <div class="category-title">Food & Groceries <span class="icon-green">🍴</span></div>
+                            <div class="category-usage">59% Used</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill fill-green" style="width: 59%;"></div>
+                            </div>
+                            <div class="category-footer">
+                                <span><strong>R890</strong> of R1,500</span>
+                                <span class="text-muted">R610 remaining</span>
+                            </div>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-title">Transport <span class="icon-orange">🚗</span></div>
+                            <div class="category-usage">70% Used</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill fill-teal" style="width: 70%;"></div>
+                            </div>
+                            <div class="category-footer">
+                                <span><strong>R420</strong> of R600</span>
+                                <span class="text-muted">R180 remaining</span>
+                            </div>
+                        </div>
+
+                        <div class="category-card">
+                            <div class="category-title">Education <span class="icon-blue">📘</span></div>
+                            <div class="category-usage">56% Used</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill fill-blue" style="width: 56%;"></div>
+                            </div>
+                            <div class="category-footer">
+                                <span><strong>R450</strong> of R800</span>
+                                <span class="text-muted">R350 remaining</span>
+                            </div>
+                        </div>
+
+                        <div class="category-card over-budget-border">
+                            <div class="category-title">Accommodation <span class="icon-red">🏠</span></div>
+                            <div class="category-usage">100% Used</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill fill-red" style="width: 100%;"></div>
+                            </div>
+                            <div class="category-footer">
+                                <span><strong>R3,200</strong> of R3,000</span>
+                                <span class="text-red">R200 Over</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" class="btn-back-link">← Go Back Home</a>
+        </div>
+
+        
+        
+        <div id="home-page">
+            <div class="welcome-header">
+                <div class="brand-logo-icon">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 10h-4v3H8v-3H4v-2h4V8h2v3h4v2z"/></svg>
+                </div>
+                <h1>Welcome to your student wallet</h1>
+                <p>Take control of your finances with smart budgeting tools designed for students.</p>
+                <a href="#transaction-modal" class="btn-transaction" style="text-decoration: none; display: inline-block;">+ Add Transaction</a>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="card-icon">💳</span>
+                    <span class="card-text">Track Expenses</span>
+                </div>
+                <div class="feature-card">
+                    <span class="card-icon">🔔</span>
+                    <span class="card-text">Smart Budgeting</span>
+                </div>
+                <div class="feature-card">
+                    <span class="card-icon">📊</span>
+                    <span class="card-text">Visual Analytics</span>
+                </div>
+                <div class="feature-card">
+                    <span class="card-icon">🛡️</span>
+                    <span class="card-text">Secure & Private</span>
+                </div>
+            </div>
+
+            <a href="#wallet-page" class="btn-wallet-link">Open My Wallet →</a>
+        </div>
+
+    </div> 
+
+
+
+     
+    
+<div id="transaction-modal" class="modal-overlay">
+    <div class="modal-card">
+        
+        <a href="#" class="modal-close-x">&times;</a>
+        
+        <div class="modal-header">
+            <h3>Add New Transaction</h3>
+            <p>Record your income or expense to track your finances.</p>
+        </div>
+
+        <form class="modal-form" onsubmit="return false;">
+           
+            <div class="transaction-type-row">
+                
+                <input type="radio" id="type-expense" name="transaction-type" value="expense" checked>
+                <label for="type-expense" class="btn-type-toggle">↗ Expenses</label>
+
+                
+                <input type="radio" id="type-income" name="transaction-type" value="income">
+                <label for="type-income" class="btn-type-toggle">↙ Income</label>
+            </div>
+
+            <div class="form-group">
+                <label for="trans-desc">Description</label>
+                <input type="text" id="trans-desc" placeholder="Enter transaction name...">
+            </div>
+
+            <div class="form-group">
+                <label for="trans-amount">Amount (R)</label>
+                <input type="number" id="trans-amount" placeholder="0.00" step="0.01">
+            </div>
+
+            
+            <div class="modal-footer-row">
+                <div class="footer-actions">
+                    <a href="#" class="btn-modal-cancel">Cancel</a>
+                    <button type="submit" class="btn-modal-submit">Add Transaction</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+    
+    <div id="category-modal" class="modal-overlay">
+        <div class="modal-card">
+            
+            <a href="#wallet-page" class="modal-close-x">&times;</a>
+            
+            <div class="modal-header">
+                <h3>Add Budget Category</h3>
+                <p>Create a new spending category for your monthly budget.</p>
+            </div>
+
+            <form class="modal-form" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="cat-name">Category Name</label>
+                    <input type="text" id="cat-name" placeholder="e.g Accommodation">
+                </div>
+
+                <div class="form-group">
+                    <label for="cat-amount">Amount (R)</label>
+                    <input type="number" id="cat-amount" placeholder="0.00" step="0.01">
+                </div>
+
+              
+                <div class="modal-footer-row">
+                    <div class="footer-actions">
+                        <a href="#wallet-page" class="btn-modal-cancel">Cancel</a>
+                        <button type="submit" class="btn-modal-submit">Add Category</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
+</body>
+</html>
