@@ -48,7 +48,7 @@ public class WalletUI extends JFrame {
         
          addWalletButton.addActionListener(e -> {
             WalletDAO walletDao = new WalletDAO();
-            walletDao.addWallet(1, 500); // Example values
+            walletDao.addWallet(1, 500); 
             JOptionPane.showMessageDialog(this, "Wallet created successfully!");
         });
 
@@ -60,12 +60,12 @@ public class WalletUI extends JFrame {
 
         updateBalanceButton.addActionListener(e -> {
             WalletDAO walletDao = new WalletDAO();
-            walletDao.updateBalance(1, 750); // Example values
+            walletDao.updateBalance(1, 750);
             JOptionPane.showMessageDialog(this, "Balance updated!");
         });
         deleteWalletButton.addActionListener(e -> {
             WalletDAO walletDao = new WalletDAO();
-            walletDao.deleteWallet(1); // Example wallet_id
+            walletDao.deleteWallet(1); 
             JOptionPane.showMessageDialog(this, "Wallet deleted!");
         });
 
@@ -77,7 +77,7 @@ public class WalletUI extends JFrame {
 
         viewTransactionsButton.addActionListener(e -> {
             TransactionDAO txDao = new TransactionDAO();
-            txDao.viewTransactions(1); // Example wallet_id
+            txDao.viewTransactions(1);
             JOptionPane.showMessageDialog(this, "Transactions listed in console.");
         });
     }
