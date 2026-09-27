@@ -18,7 +18,7 @@ public class EduFinanceApp {
 
     public static void main(String[] args) {
       javax.swing.SwingUtilities.invokeLater(() -> {
-            new WalletUI().setVisible(true); // or DashboardUI, or MainMenu
+            new WalletUI().setVisible(true); // 
         });  
    WalletDAO walletDao = new WalletDAO();
         walletDao.addWallet(1, 500);
