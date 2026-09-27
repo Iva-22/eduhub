@@ -2,9 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const userId = 1;
 
-    // ==========================================
-    // 0. FETCH FROM MYSQL WITH ASSIGNMENT FALLBACK
-    // ==========================================
+    
     function loadWalletData() {
         fetch(`http://localhost:8080/api/wallets`)
             .then(response => {
@@ -24,25 +22,21 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch(err => {
                 console.log("Using safe layout backup values for submission...");
                 
-                // FALLBACK VALUES: Automatically fills the fields if server is building/stopped
                 const balanceDiv = document.querySelector(".db-balance");
                 const savingsDiv = document.querySelector(".db-savings");
                 
                 if (balanceDiv && balanceDiv.textContent === "R0") {
-                    balanceDiv.textContent = "R4,824"; // Restores your initial beautiful layout number
+                    balanceDiv.textContent = "R4,824";
                 }
                 if (savingsDiv && savingsDiv.textContent === "R0") {
-                    savingsDiv.textContent = "R1,000"; // Restores your initial savings number
+                    savingsDiv.textContent = "R1,000"; 
                 }
             });
         }
 
-    // Load data right away
-    loadWalletData();
 
-    // ==========================================
-    // 1. HANDLER FOR THE BUDGET CATEGORY FORM
-    // ==========================================
+    loadWalletData();
+    
     const categoryForm = document.querySelector("#category-modal form");
     if (categoryForm) {
         categoryForm.addEventListener("submit", (e) => {
@@ -79,9 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ==========================================
-    // 2. HANDLER FOR TRANSACTION FORM
-    // ==========================================
+    
     const transactionForm = document.querySelector("#transaction-modal form");
     if (transactionForm) {
         transactionForm.addEventListener("submit", (e) => {
