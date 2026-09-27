@@ -38,7 +38,7 @@ public class WalletDAO {
        return wallet;
    } 
   public List<Wallet> viewWallets() {
-    List<Wallet> wallets = new ArrayList<>();  // <-- declare here
+    List<Wallet> wallets = new ArrayList<>();
 
     String sql = "SELECT * FROM Wallet";
     try (Connection conn = DBConnection.getConnection();
@@ -55,7 +55,7 @@ public class WalletDAO {
     } catch (SQLException e) {
         e.printStackTrace();
     }
-    return wallets;  // return the list
+    return wallets; 
 }
 
       
