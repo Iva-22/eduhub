@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduFinance Hub - Student Wallet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-wrapper">
+
+    <!--  WALLET PAGE  -->
+    <div id="wallet-page">
+
+        <nav class="top-nav" aria-label="Wallet sections">
+            <a href="#" class="active" data-tab="overview">Overview</a>
+            <a href="#" data-tab="spending">Spending</a>
+            <a href="#" data-tab="trends">Trends</a>
+        </nav>
+
+        <div class="wallet-header-row">
+            <div class="header-info">
+                <h2>Student Wallet</h2>
+                <p>Track your expenses, manage budgets, and stay financially healthy.</p>
+            </div>
+            <div class="header-actions">
+                <a href="#" class="btn-add-category" data-open="transaction-modal">Add Transaction +</a>
+                <a href="#" class="btn-add-category" data-open="category-modal">Add Category +</a>
+            </div>
+        </div>
+
+        <!-- Green (success) / red (error) messages -->
+        <div id="message" class="message" role="status" aria-live="polite" hidden></div>
+
+        <!--  OVERVIEW  -->
+        <div id="tab-overview" class="tab-panel">
+            <div class="wallet-main-layout">
+                <div class="balance-card">
+                    <div>
+                        <span class="balance-label">Available Balance</span>
+                        <div class="amount-large db-balance">—</div>
+                    </div>
+                    <div>
+                        <span class="balance-label">Total Savings</span>
+                        <div class="amount-medium db-savings">—</div>
+                    </div>
+                    <div class="income-expense-row">
+                        <div class="mini-data-box">Monthly Income <strong id="income">—</strong></div>
+                        <div class="mini-data-box">Monthly Expenses <strong id="expenses">—</strong></div>
+                    </div>
+                </div>
+
+                <div class="budget-sidebar">
+                    <div id="alerts"></div>
+                    <div id="categories" class="categories-grid"></div>
+                </div>
+            </div>
+
+            <div class="section-head">
+                <h3>Savings Goals</h3>
+                <a href="#" class="btn-add-category" data-open="goal-modal">Add Goal +</a>
+            </div>
+            <div id="goals" class="categories-grid"></div>
+        </div>
+
+        <!--  SPENDING  -->
+        <div id="tab-spending" class="tab-panel" hidden>
+            <div class="section-head">
+                <h3>Transactions</h3>
+                <a href="#" class="btn-add-category" data-open="transaction-modal">Add Transaction +</a>
+            </div>
+            <div class="panel-card">
+                <div class="toolbar" role="search">
+                    <input type="search" id="filter-search" placeholder="Search description..." aria-label="Search transactions">
+                    <select id="filter-type" aria-label="Filter by type">
+                        <option value="all">All types</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expenses</option>
+                    </select>
+                    <select id="filter-category" aria-label="Filter by category"></select>
+                    <select id="filter-sort" aria-label="Sort transactions">
+                        <option value="date-desc">Newest first</option>
+                        <option value="date-asc">Oldest first</option>
+                        <option value="amount-desc">Highest amount</option>
+                        <option value="amount-asc">Lowest amount</option>
+                    </select>
+                    <button type="button" class="btn-mini" id="filter-reset">Clear</button>
+                </div>
+                <p id="tx-count" class="text-muted" aria-live="polite"></p>
+                <div class="table-wrap">
+                    <table class="tx-table">
+                        <caption class="sr-only">Your transactions</caption>
+                        <thead>
+                            <tr><th>Date</th><th>Description</th><th>Category</th><th>Type</th><th>Amount</th><th>Actions</th></tr>
+                        </thead>
+                        <tbody id="tx-body"></tbody>
+                    </table>
+                </div>
+                <p id="tx-empty" class="empty" hidden>No transactions match your search or filters.</p>
+            </div>
+        </div>
+
+        <!--  TRENDS  -->
+        <div id="tab-trends" class="tab-panel" hidden>
+            <div class="panel-card">
+                <h3>Spending by category (this month)</h3>
+                <div id="chart-categories" class="chart"></div>
+            </div>
+            <div class="panel-card" style="margin-top: 20px;">
+                <h3>Income vs expenses by month</h3>
+                <div id="chart-months" class="chart"></div>
+            </div>
+        </div>
+
+        <a href="#" class="btn-back-link" data-show="home">← Go Back Home</a>
+    </div>
+
+    <!--  HOME PAGE  -->
+    <div id="home-page">
+        <div class="welcome-header">
+            <div class="brand-logo-icon">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 10h-4v3H8v-3H4v-2h4V8h2v3h4v2z"/></svg>
+            </div>
+            <h1>Welcome to your student wallet</h1>
+            <p>Take control of your finances with smart budgeting tools designed for students.</p>
+            <a href="#" class="btn-transaction" data-open="transaction-modal" style="text-decoration: none; display: inline-block;">+ Add Transaction</a>
+        </div>
+
+            <div class="features-grid">
+            <a href="#" class="feature-card" data-goto="spending"><span class="card-icon">💳</span><span class="card-text">Track Expenses</span></a>
+            <a href="#" class="feature-card" data-goto="overview"><span class="card-icon">🔔</span><span class="card-text">Smart Budgeting</span></a>
+            <a href="#" class="feature-card" data-goto="trends"><span class="card-icon">📊</span><span class="card-text">Visual Analytics</span></a>
+            <div class="feature-card"><span class="card-icon">🛡️</span><span class="card-text">Secure & Private</span></div>
+        </div>
+
+        <a href="#" class="btn-wallet-link" data-show="wallet">Open My Wallet →</a>
+    </div>
+
+</div>
+
+<!-- TRANSACTION MODAL (add + edit)  -->
+<div id="transaction-modal" class="modal-overlay">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="transaction-heading">
+        <a href="#" class="modal-close-x" data-close aria-label="Close">&times;</a>
+        <div class="modal-header">
+            <h3 id="transaction-heading">Add New Transaction</h3>
+            <p>Record your income or expense to track your finances.</p>
+        </div>
+        <form id="transaction-form" class="modal-form" novalidate>
+            <div class="transaction-type-row">
+                <input type="radio" id="type-expense" name="type" value="expense" checked>
+                <label for="type-expense" class="btn-type-toggle">↗ Expense</label>
+                <input type="radio" id="type-income" name="type" value="income">
+                <label for="type-income" class="btn-type-toggle">↙ Income</label>
+            </div>
+            <div class="form-group">
+                <label for="trans-desc">Description</label>
+                <input type="text" id="trans-desc" maxlength="150" placeholder="e.g. Weekly groceries">
+            </div>
+            <div class="form-group">
+                <label for="trans-amount">Amount (R)</label>
+                <input type="number" id="trans-amount" placeholder="0.00" step="0.01" min="0.01">
+            </div>
+            <div class="form-group" id="trans-category-group">
+                <label for="trans-category">Category</label>
+                <select id="trans-category"></select>
+            </div>
+            <div class="form-group">
+                <label for="trans-date">Date</label>
+                <input type="date" id="trans-date">
+            </div>
+            <p class="form-error" id="transaction-error" role="alert" hidden></p>
+            <div class="modal-footer-row">
+                <div class="footer-actions">
+                    <a href="#" class="btn-modal-cancel" data-close>Cancel</a>
+                    <button type="submit" class="btn-modal-submit" id="transaction-submit">Add Transaction</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div id="category-modal" class="modal-overlay">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="category-heading">
+        <a href="#" class="modal-close-x" data-close aria-label="Close">&times;</a>
+        <div class="modal-header">
+            <h3 id="category-heading">Add Budget Category</h3>
+            <p>Create a spending category with a monthly limit.</p>
+        </div>
+        <form id="category-form" class="modal-form" novalidate>
+            <div class="form-group">
+                <label for="cat-name">Category Name</label>
+                <input type="text" id="cat-name" maxlength="60" placeholder="e.g. Entertainment">
+            </div>
+            <div class="form-group">
+                <label for="cat-amount">Monthly Limit (R)</label>
+                <input type="number" id="cat-amount" placeholder="0.00" step="0.01" min="0.01">
+            </div>
+            <p class="form-error" id="category-error" role="alert" hidden></p>
+            <div class="modal-footer-row">
+                <div class="footer-actions">
+                    <a href="#" class="btn-modal-cancel" data-close>Cancel</a>
+                    <button type="submit" class="btn-modal-submit" id="category-submit">Add Category</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div id="goal-modal" class="modal-overlay">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="goal-heading">
+        <a href="#" class="modal-close-x" data-close aria-label="Close">&times;</a>
+        <div class="modal-header">
+            <h3 id="goal-heading">Add Savings Goal</h3>
+            <p>Set a target amount and a deadline.</p>
+        </div>
+        <form id="goal-form" class="modal-form" novalidate>
+            <div class="form-group">
+                <label for="goal-title">Goal Name</label>
+                <input type="text" id="goal-title" maxlength="80" placeholder="e.g. Laptop">
+            </div>
+            <div class="form-group">
+                <label for="goal-target">Target Amount (R)</label>
+                <input type="number" id="goal-target" placeholder="0.00" step="0.01" min="0.01">
+            </div>
+            <div class="form-group">
+                <label for="goal-saved">Saved So Far (R)</label>
+                <input type="number" id="goal-saved" placeholder="0.00" step="0.01" min="0">
+            </div>
+            <div class="form-group">
+                <label for="goal-deadline">Deadline</label>
+                <input type="date" id="goal-deadline">
+            </div>
+            <p class="form-error" id="goal-error" role="alert" hidden></p>
+            <div class="modal-footer-row">
+                <div class="footer-actions">
+                    <a href="#" class="btn-modal-cancel" data-close>Cancel</a>
+                    <button type="submit" class="btn-modal-submit" id="goal-submit">Add Goal</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="logic.js"></script>
+<script src="wallet.js"></script>
+</body>
+</html>
